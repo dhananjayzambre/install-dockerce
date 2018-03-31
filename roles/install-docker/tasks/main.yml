@@ -19,13 +19,13 @@
     - docker-engine-selinux
     - docker-engine
      
- - name: Setting up Docker-CE Repository prerquisite
+ - name: Setting up Docker-CE Repository prerequisite
    yum: name={{ item }} state=installed
    with_items:
     - device-mapper-persistent-data
     - lvm2
     
- - name: Settingup Docker-CE Repository
+ - name: Setting up Docker-CE Repository
    shell: 'yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
 
  - name: Setting up addtional rpms needed for RHEL based systems
