@@ -1,4 +1,6 @@
- - name: Setting up prerequisite   yum: name=yum-utils state=installed   
+ - name: Setting up prerequisite
+   yum: name=yum-utils state=installed
+
  - name: Enabling Docker Yum Repository
    shell: 'yum-config-manager --enable extras'
    
