@@ -16,6 +16,10 @@ Running the Playbook:
 
 To run the playbook, use this:
 
+Update inventory file for IP-ADDRESS, USER-NAME and SSH PRIVATE KEY FILE
+
+then run the below command to install Docker CE
+
 ansible-playbook install-dockerce.yml -i inventory
 
 License
