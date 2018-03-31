@@ -1,0 +1,38 @@
+ - name: Setting up prerequisite   yum: name=yum-utils state=installed
+   
+ - name: Enabling Docker Yum Repository
+   shell: 'yum-config-manager --enable extras'
+   
+ - name: Uninstalling old versions of Docker
+   yum: name={{ item }} state=absent
+   with_items:
+    - docker
+    - docker-ce
+    - docker-client
+    - docker-client-latest
+    - docker-common
+    - docker-latest
+    - docker-latest-logrotate
+    - docker-logrotate
+    - docker-selinux
+    - docker-engine-selinux
+    - docker-engine
+     
+ - name: Setting up Docker-CE Repository prerquisite
+   yum: name={{ item }} state=installed
+   with_items:
+    - device-mapper-persistent-data
+    - lvm2
+    
+ - name: Settingup Docker-CE Repository
+   shell: 'yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
+   
+ - name: Installing Docker-CE Package
+   yum: name=docker-ce state=latest
+   
+ - name: Starting & Enabling Docker
+   service: 
+    name: docker 
+    state: started
+    enabled: yes
+   
