@@ -1,1 +1,7 @@
-# Playbook to install Docker-CE from scratch---- hosts: servers  remote_user: root  roles:   - install-docker
+# Playbook to install Docker-CE from scratch
+---
+- hosts: servers
+  remote_user: root
+
+  roles:
+   - install-docker
